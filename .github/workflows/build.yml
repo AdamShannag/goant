@@ -43,10 +43,10 @@ jobs:
           check-latest: true
 
       - name: Run golangci-lint
-        uses: golangci/golangci-lint-action@v7
+        uses: golangci/golangci-lint-action@v8
         with:
           version: v2.0
-          args: --timeout=5m
+          args: --timeout=1m
           only-new-issues: true
           install-mode: binary
           skip-cache: false
