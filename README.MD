@@ -55,7 +55,7 @@ Suppose you have an interface annotated like this:
 ```go
 // gomock:package=user_mock out=.gen/mocks/user_mock/mock_repo.go
 type Repository interface {
-    Create(ctx context.Context, todo domain.User) (domain.User, error)
+    Create(ctx context.Context, user domain.User) (domain.User, error)
 }
 
 ```
@@ -107,7 +107,7 @@ Example:
 // myTool:echo=hello
 // myTool:echo=world
 type Repository interface {
-    Create(ctx context.Context, todo domain.User) (domain.User, error)
+    Create(ctx context.Context, user domain.User) (domain.User, error)
 }
 
 ```
