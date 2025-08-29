@@ -3,6 +3,21 @@
 Goant is a lightweight tool for scanning Go projects for annotated types or interfaces and running commands dynamically
 based on those annotations. It works with any tool that can be triggered from the command line.
 
+<p>
+  <a href="https://github.com/AdamShannag/goant/actions/workflows/build.yml">
+    <img src="https://img.shields.io/github/actions/workflow/status/AdamShannag/goant/build.yml?branch=master&label=CI%2FCD&logo=github" alt="CI/CD">
+  </a>
+  <a href="https://github.com/AdamShannag/goant/blob/master/go.mod">
+    <img src="https://img.shields.io/github/go-mod/go-version/AdamShannag/goant?logo=go" alt="Go Version">
+  </a>
+  <a href="https://github.com/AdamShannag/goant/releases/latest">
+    <img src="https://img.shields.io/github/v/release/AdamShannag/goant?sort=semver" alt="Latest Release">
+  </a>
+  <a href="https://github.com/AdamShannag/goant/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT">
+  </a>
+</p>
+
 ## Installation
 
 You can install and run Goant in two ways:
