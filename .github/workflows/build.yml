@@ -39,7 +39,6 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: ${{ env.GO_VERSION }}
-          cache: true
           check-latest: true
 
       - name: Run golangci-lint
@@ -49,7 +48,6 @@ jobs:
           args: --timeout=2m
           only-new-issues: true
           install-mode: binary
-          skip-cache: false
 
       - name: Check formatting
         run: |
@@ -74,7 +72,6 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: ${{ env.GO_VERSION }}
-          cache: true
 
       - name: Run tests
         run: go test -v -race -coverprofile=coverage.txt -covermode=atomic ./...
@@ -103,7 +100,6 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: ${{ env.GO_VERSION }}
-          cache: true
 
       - name: Build
         run: go build -v ./... 
