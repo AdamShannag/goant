@@ -15,7 +15,6 @@ type RunOptions struct {
 	DryRun  bool
 }
 
-// gomock:package=users out=./gen/tests/repo.go
 type App interface {
 	Run() error
 }
