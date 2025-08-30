@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/AdamShannag/goant/pkg/app"
 	"github.com/AdamShannag/goant/pkg/extractor"
@@ -18,8 +19,9 @@ func main() {
 	keyword := flag.String("keyword", "", "Comment keyword to search for, e.g. 'gomock'")
 	cmdTemplate := flag.String("cmd", "", "Command template with placeholders, e.g. 'go run go.uber.org/mock/mockgen@latest -destination=@out -package=@package -source=@path @type'")
 	dryRun := flag.Bool("dry", false, "Print the commands without executing them")
-	showVersion := flag.Bool("version", false, "Print version and exit")
 	silent := flag.Bool("s", false, "Suppress all output")
+	skip := flag.String("skip", "", "Comma-separated list of directories to skip")
+	showVersion := flag.Bool("version", false, "Print version and exit")
 
 	flag.Parse()
 
@@ -43,7 +45,7 @@ func main() {
 	}
 
 	if err := app.New(options,
-		walker.NewFileWalker(),
+		walker.NewFileWalker(strings.Split(*skip, ",")),
 		extractor.NewTypeExtractor(),
 		runner.NewCommandRunner()).Run(); err != nil {
 		fmt.Printf("error: %v\n", err)

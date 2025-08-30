@@ -10,17 +10,30 @@ type FileWalker interface {
 	Walk(root string, fn func(path string) error) error
 }
 
-type fileWalker struct{}
+type fileWalker struct {
+	skipPaths []string
+}
 
-func NewFileWalker() FileWalker {
-	return &fileWalker{}
+func NewFileWalker(skip []string) FileWalker {
+	return &fileWalker{skipPaths: skip}
 }
 
 func (d *fileWalker) Walk(root string, fn func(path string) error) error {
 	return filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
-		if err != nil || !strings.HasSuffix(path, ".go") {
-			return nil
+		if err != nil {
+			return err
 		}
-		return fn(path)
+
+		for _, skip := range d.skipPaths {
+			if info.IsDir() && info.Name() == skip {
+				return filepath.SkipDir
+			}
+		}
+
+		if !info.IsDir() && strings.HasSuffix(path, ".go") {
+			return fn(path)
+		}
+
+		return nil
 	})
 }

@@ -29,7 +29,7 @@ func TestFileWalker_Walk(t *testing.T) {
 		}
 	}
 
-	fileWalker := walker.NewFileWalker()
+	fileWalker := walker.NewFileWalker([]string{})
 
 	t.Run("only .go files are visited", func(t *testing.T) {
 		var visited []string

@@ -47,6 +47,7 @@ go run github.com/AdamShannag/goant/cmd/goant@v0.1.0 -keyword=myAnnotation -cmd=
 * `-cmd` – Command template with placeholders.
 * `-dry` – Print the commands that would be executed without actually running them.
 * `-s` – Suppress all output.
+* `-skip` – Comma-separated list of directories to skip.
 * `-version` – Print Goant version and exit.
 
 ## Example
