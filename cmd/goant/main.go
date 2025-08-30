@@ -11,7 +11,7 @@ import (
 	"github.com/AdamShannag/goant/pkg/walker"
 )
 
-const version = "0.1.0"
+const version = "0.2.0"
 
 func main() {
 	root := flag.String("root", ".", "Root directory for Go files")

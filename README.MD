@@ -46,6 +46,7 @@ go run github.com/AdamShannag/goant/cmd/goant@v0.1.0 -keyword=myAnnotation -cmd=
 * `-keyword` – Comment keyword to search for, e.g. `gomock`.
 * `-cmd` – Command template with placeholders.
 * `-dry` – Print the commands that would be executed without actually running them.
+* `-s` – Suppress all output.
 * `-version` – Print Goant version and exit.
 
 ## Example
