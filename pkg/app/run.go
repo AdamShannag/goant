@@ -13,6 +13,7 @@ type RunOptions struct {
 	Keyword string
 	Cmd     string
 	DryRun  bool
+	Silent  bool
 }
 
 type App interface {
@@ -49,7 +50,7 @@ func (a *app) Run() error {
 		}
 
 		for _, ann := range annotations {
-			if err = a.commandRunner.Run(a.options.Cmd, ann.Params, a.options.DryRun); err != nil {
+			if err = a.commandRunner.Run(a.options.Cmd, ann.Params, a.options.DryRun, a.options.Silent); err != nil {
 				fmt.Printf("Error running command for %s: %v\n", ann.TypeName, err)
 			}
 		}

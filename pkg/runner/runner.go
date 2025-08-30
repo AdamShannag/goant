@@ -9,7 +9,7 @@ import (
 )
 
 type CommandRunner interface {
-	Run(template string, args map[string]string, dryRun bool) error
+	Run(template string, args map[string]string, dryRun, silent bool) error
 }
 
 type CommandExecutor func(name string, args ...string) func() error
@@ -30,7 +30,7 @@ func NewCommandRunner() CommandRunner {
 	return &CommandRunnerImpl{Executor: ex}
 }
 
-func (r *CommandRunnerImpl) Run(template string, args map[string]string, dryRun bool) error {
+func (r *CommandRunnerImpl) Run(template string, args map[string]string, dryRun, silent bool) error {
 	if template == "" {
 		return fmt.Errorf("template cannot be empty")
 	}
@@ -47,7 +47,9 @@ func (r *CommandRunnerImpl) Run(template string, args map[string]string, dryRun 
 	}
 
 	cmdStr := strings.NewReplacer(replArgs...).Replace(template)
-	fmt.Println("Running:", cmdStr)
+	if !silent {
+		fmt.Println("Running:", cmdStr)
+	}
 
 	if dryRun {
 		return nil

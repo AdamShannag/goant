@@ -19,6 +19,7 @@ func main() {
 	cmdTemplate := flag.String("cmd", "", "Command template with placeholders, e.g. 'go run go.uber.org/mock/mockgen@latest -destination=@out -package=@package -source=@path @type'")
 	dryRun := flag.Bool("dry", false, "Print the commands without executing them")
 	showVersion := flag.Bool("version", false, "Print version and exit")
+	silent := flag.Bool("s", false, "Suppress all output")
 
 	flag.Parse()
 
@@ -38,6 +39,7 @@ func main() {
 		Keyword: *keyword,
 		Cmd:     *cmdTemplate,
 		DryRun:  *dryRun,
+		Silent:  *silent,
 	}
 
 	if err := app.New(options,

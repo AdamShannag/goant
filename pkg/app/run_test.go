@@ -113,7 +113,7 @@ type fakeRunner struct {
 	err    error
 }
 
-func (f *fakeRunner) Run(template string, args map[string]string, _ bool) error {
+func (f *fakeRunner) Run(template string, args map[string]string, _, _ bool) error {
 	cmd := template
 	for k, v := range args {
 		cmd = strings.ReplaceAll(cmd, "@"+k, v)
