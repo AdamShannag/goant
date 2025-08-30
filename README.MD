@@ -25,7 +25,7 @@ You can install and run Goant in two ways:
 ### 1. Install via `go install`
 
 ```bash
-go install github.com/AdamShannag/goant/cmd/goant@v0.1.0
+go install github.com/AdamShannag/goant/cmd/goant@v0.3.0
 ```
 
 Then run it directly:
@@ -37,7 +37,7 @@ goant -keyword=myAnnotation -cmd="your command here"
 ### 2. Run directly with `go run`
 
 ```bash
-go run github.com/AdamShannag/goant/cmd/goant@v0.1.0 -keyword=myAnnotation -cmd="your command here"
+go run github.com/AdamShannag/goant/cmd/goant@v0.3.0 -keyword=myAnnotation -cmd="your command here"
 ```
 
 ## Flags
